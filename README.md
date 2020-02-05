@@ -1,4 +1,5 @@
 # Gatsby Starter Netlify CMS Tailwind
+This "fork" replaces Bulma with Tailwind CSS. It's still a very unfinished, but working release.
     
 ## What is Tailwind CSS?
 
@@ -25,7 +26,7 @@ npm i --global gatsby-cli
 Create a new Gatsby project using this starter:
 
 ```sh
-gatsby new my-new-website https://github.com/taylorbryant/gatsby-starter-tailwind
+gatsby new my-new-website https://github.com/musosoft/gatsby-starter-netlify-cms-tailwind
 ```
 
 Build a stylesheet from your Tailwind CSS config and run the project in development mode:
@@ -50,7 +51,7 @@ Use `npm run build` to build your site for production.
 
 #### 1. Deploy this repo
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/musosoft/gatsby-starter-netlifycms-tailwind)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/musosoft/gatsby-starter-netlify-cms-tailwind)
 
 #### 2. Update the build settings
 
@@ -65,14 +66,14 @@ Use `npm run build` to build your site for production.
 
 ## License
 
-[MIT](https://github.com/musosoft/gatsby-starter-netlifycms-tailwind/blob/master/LICENSE.md)
+[MIT](https://github.com/musosoft/gatsby-starter-netlify-cms-tailwind/blob/master/LICENSE.md)
 
 ## How you can help
 
 Enjoying Gatsby Starter Tailwind and want to help? You can:
 
-- [Create an issue](https://github.com/musosoft/gatsby-starter-netlifycms-tailwind/issues/new) with some constructive criticism
-- [Submit a pull request](https://github.com/musosoft/gatsby-starter-netlifycms-tailwind/compare) with some improvements to the project
+- [Create an issue](https://github.com/musosoft/gatsby-starter-netlify-cms-tailwind/issues/new) with some constructive criticism
+- [Submit a pull request](https://github.com/musosoft/gatsby-starter-netlify-cms-tailwind/compare) with some improvements to the project
 
 ## Contributors
 
