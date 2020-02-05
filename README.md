@@ -1,126 +1,97 @@
-# Gatsby + Netlify CMS Starter
+# Gatsby Starter Netlify CMS Tailwind
+    
+## What is Tailwind CSS?
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys)
+> "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces."
+> –[Tailwind CSS](https://tailwindcss.com)
 
-**Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
+## What is Gatsby?
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
+> "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps." -[Gatsby](https://www.gatsbyjs.org/)
+> –[Tailwind CSS](https://tailwindcss.com)
 
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+## What is Netlify CMS?
 
-## Features
+> "Netlify is open source content management for your Git workflow" -[Netlify CMS](https://www.netlifycms.org/)
 
-- A simple landing page with blog functionality built with Netlify CMS
-- Editabe Pages: Landing, About, Product, Blog-Collection and Contact page with Netlify Form support
-- Create Blog posts from Netlify CMS
-- Tags: Separate page for posts under each tag
-- Basic directory organization
-- Uses Bulma for styling, but size is reduced by `purge-css-plugin`
-- Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-image` with Netlify-CMS preview support
-- Separate components for everything
-- Netlify deploy configuration
-- Netlify function support, see `lambda` folder
-- Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
-- ..and more
+## Get started
 
-## Prerequisites
+Install the Gatsby CLI:
 
-- Node (I recommend using v8.2.0 or higher)
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/)
-- [Netlify CLI](https://github.com/netlify/cli)
-
-## Getting Started (Recommended)
-
-Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/netlify-templates/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
-
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-starter-netlify-cms&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
-
-After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
-
-### Access Locally
-
-Pulldown a local copy of the Github repository Netlify created for you, with the name you specified in the previous step
-```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
-$ yarn
-$ netlify dev # or ntl dev
+```sh
+npm i --global gatsby-cli
 ```
 
-This uses the new [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `lambda` folder.
+Create a new Gatsby project using this starter:
 
-To test the CMS locally, you'll need run a production build of the site:
-
-```
-$ npm run build
-$ netlify dev # or ntl dev
+```sh
+gatsby new my-new-website https://github.com/taylorbryant/gatsby-starter-tailwind
 ```
 
-### Media Libraries (installed, but optional)
+Build a stylesheet from your Tailwind CSS config and run the project in development mode:
 
-Media Libraries have been included in this starter as a default. If you are not planning to use `Uploadcare` or `Cloudinary` in your project, you **can** remove them from module import and registration in `src/cms/cms.js`. Here is an example of the lines to comment or remove them your project.
-
-```javascript
-import CMS from 'netlify-cms-app'
-// import uploadcare from 'netlify-cms-media-library-uploadcare'
-// import cloudinary from 'netlify-cms-media-library-cloudinary'
-
-import AboutPagePreview from './preview-templates/AboutPagePreview'
-import BlogPostPreview from './preview-templates/BlogPostPreview'
-import ProductPagePreview from './preview-templates/ProductPagePreview'
-import IndexPagePreview from './preview-templates/IndexPagePreview'
-
-// CMS.registerMediaLibrary(uploadcare);
-// CMS.registerMediaLibrary(cloudinary);
-
-CMS.registerPreviewTemplate('index', IndexPagePreview)
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
+```sh
+cd my-new-website
+npm run develop
 ```
 
-Note: Don't forget to also remove them from `package.json` and `yarn.lock` / `package-lock.json` using `yarn` or `npm`. During the build netlify-cms-app will bundle the media libraries as well, having them removed will save you build time.
-Example:
-```
-yarn remove netlify-cms-media-library-uploadcare
-```
-OR
-```
-yarn remove netlify-cms-media-library-cloudinary
-```
-## Getting Started (Without Netlify)
+## Format and lint
 
-```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/netlify-templates/gatsby-starter-netlify-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run serve
-```
+- `npm run analyze` - See what ESLint and Prettier can fix
+- `npm run fix` - Run Prettier and ESLint with the `--fix` option
 
-### Setting up the CMS
+## Build your site
 
-Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
+Use `npm run build` to build your site for production.
 
-## Debugging
+## Deployment
 
-Windows users might encounter `node-gyp` errors when trying to npm install.
-To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
+### Netlify
 
-```
-npm config set python python2.7
-npm install --global --production windows-build-tools
-```
+#### 1. Deploy this repo
 
-[Full details here](https://www.npmjs.com/package/node-gyp 'NPM node-gyp page')
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/musosoft/gatsby-starter-netlifycms-tailwind)
 
-MacOS users might also encounter some errors, for more info check [node-gyp](https://github.com/nodejs/node-gyp). We recommend using the latest stable node version.
+#### 2. Update the build settings
 
-## Purgecss
+![alt text](https://i.ibb.co/whvDmxY/Screenshot-2020-01-26-11-06-15.png 'Example Netlify build settings')
 
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
+## Resources
 
-# CONTRIBUTING
+- [Gatsby documentation](https://www.gatsbyjs.org/docs/)
+- [Tailwind documentation](https://tailwindcss.com/docs/what-is-tailwind/)
+- [Prettier documentation](https://prettier.io/docs/en/index.html)
+- [ESLint documentation](https://eslint.org/docs/user-guide/configuring)
 
-Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](CODE_OF_CONDUCT.md).
+## License
+
+[MIT](https://github.com/musosoft/gatsby-starter-netlifycms-tailwind/blob/master/LICENSE.md)
+
+## How you can help
+
+Enjoying Gatsby Starter Tailwind and want to help? You can:
+
+- [Create an issue](https://github.com/musosoft/gatsby-starter-netlifycms-tailwind/issues/new) with some constructive criticism
+- [Submit a pull request](https://github.com/musosoft/gatsby-starter-netlifycms-tailwind/compare) with some improvements to the project
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="http://impuls.dev"><img src="https://avatars3.githubusercontent.com/u/8146736?v=4" width="100px;" alt="impulse"/><br /><sub><b>impulse</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=impulse" title="Code">💻</a></td>
+    <td align="center"><a href="https://gandreadis.com"><img src="https://avatars3.githubusercontent.com/u/5272244?v=4" width="100px;" alt="Georgios Andreadis"/><br /><sub><b>Georgios Andreadis</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=gandreadis" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/altruisticsoftware"><img src="https://avatars3.githubusercontent.com/u/12105346?v=4" width="100px;" alt="Chris"/><br /><sub><b>Chris</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=altruisticsoftware" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dalwadani"><img src="https://avatars1.githubusercontent.com/u/4618082?v=4" width="100px;" alt="Dhaifallah Alwadani"/><br /><sub><b>Dhaifallah Alwadani</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=dalwadani" title="Code">💻</a></td>
+    <td align="center"><a href="http://nigelball.org"><img src="https://avatars2.githubusercontent.com/u/815408?v=4" width="100px;" alt="Nigel Ball"/><br /><sub><b>Nigel Ball</b></sub></a><br /><a href="#ideas-nigelb135" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=nigelb135" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/monte-hayward"><img src="https://avatars3.githubusercontent.com/u/3780422?v=4" width="100px;" alt="Monte Hayward"/><br /><sub><b>Monte Hayward</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=monte-hayward" title="Code">💻</a></td>
+    <td align="center"><a href="https://lukebennett.com.au"><img src="https://avatars0.githubusercontent.com/u/3422401?v=4" width="100px;" alt="Luke Bennett"/><br /><sub><b>Luke Bennett</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=lukebennett88" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

@@ -1,12 +1,54 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-extraneous-dependencies */
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
-    description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    title: 'Gatsby Netlify CMS Tailwind Starter',
+    description: 'Gatsby blog with Netlify CMS styled with Tailwind',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: false,
+          failOnError: false,
+        },
+      },
+    },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'gatsby-starter-netlifycms-tailwind',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#4dc0b5',
+        display: 'minimal-ui',
+        icon: 'src/images/tailwind-icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [
+          require('tailwindcss')('./tailwind.config.js'),
+          require('autoprefixer'),
+          require('cssnano'),
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        tailwind: true,
+        // develop: true,
+        purgeOnly: ['src/css/style.css'],
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -65,13 +107,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-      options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
-    'gatsby-plugin-netlify', // make sure to keep it last in the array
+    'gatsby-plugin-netlify',
   ],
-}
+};
